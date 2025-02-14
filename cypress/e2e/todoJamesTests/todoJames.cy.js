@@ -21,19 +21,30 @@ describe('Todo James Tests', () => {
             .find('input.edit')
             .should('be.visible')
     })
+    it('Should display text "Double-click to edit a todo"', () => {
+        cy.get('.info p').should('be.visible');
+    })
+
 
     it('Does the input show "What needs to be done?" text', () => {
         cy.get('input.new-todo').should('have.attr', 'placeholder', "What need's to be done?")
 
 
     });
-    it('When add multiple todos,  list is not empty and visible', () => {
-        cy.get('input.new-todo').type('New Todo{enter}')
-        cy.get('input.new-todo').type('New Todo2{enter}')
-        cy.get('input.new-todo').type('New Todo3{enter}')
-        cy.get('ul.todo-list li').should('have.length', 3)
-        .should('be.visible');
+    it('When adding multiple todos, the list is not empty and visible', () => {
+        const todos = ['New Todo', 'New Todo2', 'New Todo3'];
+    
+        todos.forEach(todo => {
+            cy.get('input.new-todo').type(`${todo}{enter}`);
+        });
+    
+        cy.get('ul.todo-list li')
+            .should('have.length', todos.length)
+            .each(($el) => {
+                cy.wrap($el).should('be.visible');
+            });
     });
+    
 });
 
 
