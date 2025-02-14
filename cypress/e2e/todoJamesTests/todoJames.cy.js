@@ -32,16 +32,16 @@ describe('Todo James Tests', () => {
 
     });
     it('When adding multiple todos, the list is not empty and visible', () => {
-        const todos = ['New Todo', 'New Todo2', 'New Todo3'];
+        const hatePersons = ['ChristmasTree', 'Filosofas', 'In search'];
     
-        todos.forEach(todo => {
-            cy.get('input.new-todo').type(`${todo}{enter}`);
+        hatePersons.forEach(villian => {
+            cy.get('input.new-todo').type(`${villian}{enter}`);
         });
     
         cy.get('ul.todo-list li')
-            .should('have.length', todos.length)
-            .each(($el) => {
-                cy.wrap($el).should('be.visible');
+            .should('have.length', hatePersons.length)
+            .each(($hater) => {
+                cy.wrap($hater).should('be.visible');
             });
     });
     
