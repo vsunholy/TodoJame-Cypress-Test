@@ -41,7 +41,8 @@ describe('Todo James Tests', () => {
         cy.get('ul.todo-list li')
             .should('have.length', hatePersons.length)
             .each(($hater) => {
-                cy.wrap($hater).should('be.visible');
+                cy.wrap($hater).should('be.visible')
+                .dblclick()
             });
     });
     
