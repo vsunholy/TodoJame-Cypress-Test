@@ -46,6 +46,23 @@ describe('Todo James Tests', () => {
     });
     
 
+    it('Delete a ToDo', () => {
+      const hatePersons = ['ChristmasTree', 'Filosofas', 'In search'];
+        cy.AddToDos('sessionName', hatePersons);
+        cy.visit('https://todolist.james.am/#/');
+
+        cy.contains('In search')
+            .parent()
+            .find('button.destroy')
+            .invoke('show')
+            .click();
+
+
+        cy.contains('ul.todo-list li', 'In search')
+            .should('not.exist');
+        cy.contains('ul.todo-list li', 'Filosofas')
+            .should('exist');
+    });
 
 
     
