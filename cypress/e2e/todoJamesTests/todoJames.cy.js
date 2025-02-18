@@ -32,19 +32,22 @@ describe('Todo James Tests', () => {
 
     });
     it('When adding multiple todos, the list is not empty and visible', () => {
-        const hatePersons = ['ChristmasTree', 'Filosofas', 'In search'];
-    
-        hatePersons.forEach(villian => {
-            cy.get('input.new-todo').type(`${villian}{enter}`);
-        });
-    
+        const hatePersons = ['ChristmasTree', 'Filosofas', 'In search']; 
+        
+        cy.AddToDos('sessionName', hatePersons);
+        cy.visit('https://todolist.james.am/#/');
+        cy.wait(2000);
+        
         cy.get('ul.todo-list li')
             .should('have.length', hatePersons.length)
             .each(($hater) => {
-                cy.wrap($hater).should('be.visible')
-                .dblclick()
+                cy.wrap($hater).should('be.visible').dblclick();
             });
     });
+    
+
+
+
     
 });
 
