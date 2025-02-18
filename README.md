@@ -1,22 +1,47 @@
-This repository contains automated tests for verifying key elements of the [To-Do List](https://todolist.james.am/#/) web application.  
+# Todo James Tests 🧪📋
 
-### Test Cases  
+Welcome to the Cypress test suite for the Todo List application at `todolist.james.am`. This README will help you understand what's tested in this repo.
 
-1. **🔎 Header Element Rendering**  
-   - Verify that the `<header>` element is displayed on the page.  
+## Overview 📝
 
-2. **🖋️ Header Text Validation**  
-   - Check if the header contains the text **"To Do List"**.  
+This project includes tests for the Todo List application, split into two main categories:
 
-3. **💬 Instruction Text Presence**  
-   - Ensure that the text **"Double-click to edit a todo"** is visible.  
+- **Tests with Session:** These tests simulate a user session where todos are added and interacted with.
+- **Tests without Session:** These focus on verifying the initial state and basic functionalities of the app.
 
-4. **📝 Input Placeholder Validation**  
-   - Confirm that the input field contains the placeholder text **"What needs to be done?"**.  
+## Features Tested ✅
 
-5. **✅ Task List Persistence**  
-   - Add multiple tasks and verify that the task list is not empty.  
+### With Session 🗒️
 
-### 🛠️ Running the Tests  
+- **Adding Multiple Todos:** Checks if the list is correctly populated after adding several todos.
+- **Deleting a Todo:** Ensures that an item can be removed from the list.
+- **Editing a Todo:** Verifies the capability to edit existing todos.
 
-To execute these tests, use a testing framework such as Jest, Cypress, or Playwright. Make sure to install dependencies and set up the testing environment accordingly
+### Without Session 🔄
+
+- **Header Visibility:** Confirms that the header is displayed on the page.
+- **Header Content:** Checks if the header includes the text "To Do List".
+- **Creating and Editing Todos:** Tests the creation of a new todo and entering edit mode.
+- **Informational Text:** Ensures that instructions for editing todos are visible.
+- **Input Placeholder:** Verifies the placeholder text in the new todo input field.
+
+## Setup & Execution 🛠️
+
+### Prerequisites
+
+- Node.js installed
+- Cypress installed (will be included in `node_modules` after npm install)
+
+### Steps:
+
+.**Install Dependencies:**
+- npm install cypress
+
+## Configuration Details ⚙️
+
+- **Cypress:** Utilized for all end-to-end testing.
+- **Test Environment:** `https://todolist.james.am/#/`
+
+## License 📄
+-This project is open-source and available under the MIT License.
+
