@@ -21,10 +21,19 @@
         hatePersons.forEach(villain => {
             cy.get('input.new-todo').type(`${villain}{enter}`);
         });
+
+        // Verify items exist before saving session
+        cy.get('ul.todo-list li', { timeout: 6000 })
+            .should('have.length', hatePersons.length);
+
+        cy.log('Todos added successfully:', hatePersons);
     });
 
-    cy.log('All ToDos added');
+    cy.log('All ToDos added ✅');
 });
+
+
+
 
     
 
